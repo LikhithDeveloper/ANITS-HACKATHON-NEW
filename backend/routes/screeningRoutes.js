@@ -6,7 +6,7 @@ const { analyzeResume } = require('../controllers/screeningController');
 // Multer Config
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'backend/uploads/');
+    cb(null, 'uploads/');
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + '-' + file.originalname);
