@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react'; // Added useContext
 import { useDropzone } from 'react-dropzone';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UploadCloud, FileText, CheckCircle, AlertTriangle, BookOpen, Clock, Loader } from 'lucide-react';
+import AuthContext from '../context/AuthContext'; // Import AuthContext
 import './ResumeScreening.css';
 
 const ResumeScreening = () => {
@@ -10,6 +11,8 @@ const ResumeScreening = () => {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
+  
+  const { user } = useContext(AuthContext); // Get user for token
 
   const onDrop = (acceptedFiles) => {
     setFile(acceptedFiles[0]);
@@ -38,6 +41,9 @@ const ResumeScreening = () => {
     try {
       const response = await fetch('http://localhost:5000/api/screening/analyze', {
         method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${user.token}` // Add Token
+        },
         body: formData,
       });
 
@@ -180,14 +186,14 @@ const ResumeScreening = () => {
 
                 {/* Learning Plan */}
                 <div className="result-block">
-                  <h3><BookOpen size={20} className="icon-blue" /> 4-Week Prep Plan</h3>
+                  <h3><BookOpen size={20} className="icon-blue" /> Personalized Growth Plan</h3>
                   <div className="timeline">
-                    {result.learningPlan && result.learningPlan.map((week, i) => (
+                    {result.learningPlan && result.learningPlan.map((item, i) => (
                        <div key={i} className="timeline-item">
-                          <div className="timeline-marker">{week.week}</div>
+                          <div className="timeline-marker">{i + 1}</div>
                           <div className="timeline-content">
-                            <h4>Week {week.week}: {week.focus}</h4>
-                            <p>{week.action}</p>
+                            <h4>{item.duration || `Phase ${i+1}`}: {item.focus}</h4>
+                            <p>{item.action}</p>
                           </div>
                        </div>
                     ))}

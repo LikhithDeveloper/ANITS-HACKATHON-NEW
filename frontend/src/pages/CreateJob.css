@@ -1,0 +1,150 @@
+.create-job-page {
+  padding-top: var(--header-height);
+  padding-bottom: 50px;
+  background: var(--bg-primary);
+  min-height: 100vh;
+}
+
+.job-card {
+  max-width: 800px;
+  margin: 40px auto;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.card-header h2 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.card-header p {
+  color: var(--text-secondary);
+}
+
+.job-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: white;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+
+/* Recruitment Phases */
+.phases-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.add-phase-btn {
+    background: var(--accent-primary);
+    color: white;
+    width: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phases-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.phase-tag {
+    background: rgba(255,255,255,0.05);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.remove-phase {
+    color: var(--text-secondary);
+    display: flex;
+    cursor: pointer;
+}
+
+.remove-phase:hover {
+    color: #ef4444;
+}
+
+.submit-btn {
+  padding: 15px;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+/* Input Icons */
+.input-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.input-icon-wrapper input {
+  padding-left: 45px !important; /* Ensure space for icon */
+}
+

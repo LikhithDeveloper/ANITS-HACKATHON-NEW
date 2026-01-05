@@ -1,16 +1,46 @@
-# React + Vite
+# TalentScout AI - Frontend Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The React-based frontend for TalentScout AI, featuring a modern, dark-themed UI for recruiters to manage jobs and screen candidates.
 
-Currently, two official plugins are available:
+## 🚀 Features
+*   **Recruiter Dashboard**: Overview of all active job postings and status.
+*   **Job Creation**: Detailed form to specify skills, requirements, and job details.
+*   **Smart Bulk Upload**:
+    *   Drag-and-drop interface support multiple PDF files.
+    *   **Client-Side Batching**: Uploads files in chunks of 5 to ensure backend stability and provide real-time feedback.
+    *   **Progress Bar**: Visual indicator of the analysis progress.
+*   **Candidate Insights**:
+    *   Expandable cards showing Match Score and Status.
+    *   Detailed view of "Missing Critical Skills" and "AI Summary".
+    *   Color-coded scores (Green/Yellow/Red).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Tech Stack
+*   **Vite**: Fast build tool and dev server.
+*   **React**: Component-based UI.
+*   **Framer Motion**: Smooth animations for page transitions and card interactions.
+*   **Lucide React**: Modern icon set.
+*   **React Dropzone**: File handling.
+*   **Module CSS**: Custom styling variables (`index.css`).
 
-## React Compiler
+## ⚙️ Setup
+1.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
+2.  **Run Development Server**
+    ```bash
+    npm run dev
+    ```
+    Access the app at `http://localhost:5173`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📂 Key Components
+*   `pages/Dashboard.jsx`: Main hub for recruiters.
+*   `pages/JobDetails.jsx`: Complex view handling both job info and the screening/candidates tab. Implements the batch upload logic.
+*   `components/Navbar.jsx`: Responsive navigation with auth state awareness.
+*   `context/AuthContext.jsx`: Handles user session and JWT storage.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎨 Design System
+The app uses a "Dark Premium" theme defined in `index.css`:
+*   **Backgrounds**: Deep slate/black (`#0f172a`, `#1e293b`).
+*   **Accents**: Blue (`#3b82f6`) and Emerald (`#10b981`) for success states.
+*   **Typography**: Inter/System fonts for clean readability.

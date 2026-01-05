@@ -18,8 +18,12 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/talentscout
   .catch(err => console.log(err));
 
 const screeningRoutes = require('./routes/screeningRoutes');
+const authRoutes = require('./routes/authRoutes');
+const jobRoutes = require('./routes/jobRoutes');
 
 // Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/jobs', jobRoutes);
 app.use('/api/screening', screeningRoutes);
 
 app.get('/', (req, res) => {

@@ -19,14 +19,14 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div 
+          {/* <motion.div 
             className="hero-badge"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
           >
             <Sparkles size={16} /> <span>Powered by Gemini & GPT-4o</span>
-          </motion.div>
+          </motion.div> */}
           
           <h1 className="hero-title">
             Hiring Intelligence <br />
@@ -49,17 +49,17 @@ const Hero = () => {
 
           <div className="hero-stats">
             <div className="stat-item">
-              <span className="stat-value">85%</span>
+              <span className="stat-value">-%</span>
               <span className="stat-label">Time Saved</span>
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
-              <span className="stat-value">10k+</span>
+              <span className="stat-value">-</span>
               <span className="stat-label">Resumes Parsed</span>
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
-              <span className="stat-value">98%</span>
+              <span className="stat-value">-%</span>
               <span className="stat-label">Accuracy</span>
             </div>
           </div>

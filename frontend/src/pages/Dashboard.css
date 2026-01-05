@@ -1,0 +1,102 @@
+.dashboard-page {
+  padding-top: 120px;
+  padding-bottom: 50px;
+  background: var(--bg-primary);
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  color: white;
+}
+
+.dashboard-header p {
+  color: var(--text-secondary);
+}
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.job-card-mini {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.job-card-mini:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 10px 30px -5px rgba(0,0,0,0.3);
+}
+
+.job-status {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.job-card-mini h3 {
+  font-size: 1.25rem;
+  color: white;
+  margin-bottom: 16px;
+  padding-right: 60px; /* Space for badge */
+}
+
+.job-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.job-meta span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.view-job-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+
+.view-job-btn:hover {
+  gap: 12px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px dashed var(--border-color);
+}
