@@ -21,9 +21,13 @@ The backend for TalentScout AI, built with Node.js, Express, and MongoDB. It han
 3.  **Run Server**
     ```bash
     node server.js
-    # or for dev
     npm run dev
     ```
+
+3.  **🔑 API Key Configuration**
+    The application uses a pool of Groq API Keys to handle rate limiting.
+    These keys are stored in [`config/keys.js`](./config/keys.js).
+    You can update the `GROQ_KEYS` array in this file to add or rotate your own keys.
 
 ## 📡 API Endpoints
 
