@@ -3,6 +3,11 @@ const fs = require('fs');
 
 const parseResume = async (filePath) => {
   try {
+    if (!fs.existsSync(filePath)) throw new Error(`File not found: ${filePath}`);
+    const stats = fs.statSync(filePath);
+    if (stats.size === 0) throw new Error("File is empty (0 bytes)");
+    console.log(`Parsing PDF: ${filePath} (${stats.size} bytes)`);
+
     const dataBuffer = fs.readFileSync(filePath);
     
     // Standard pdf-parse v1.1.1 usage

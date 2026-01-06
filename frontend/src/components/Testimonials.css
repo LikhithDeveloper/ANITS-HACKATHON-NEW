@@ -58,7 +58,7 @@
 
 .author-info h4 {
   font-size: 0.95rem;
-  color: white;
+  color: var(--text-primary);
 }
 
 .author-info span {

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
-import { Briefcase, MapPin, Users, Award, CheckCircle, Plus, X } from 'lucide-react';
+import { Briefcase, MapPin, Users, Award, CheckCircle, Plus, X, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './CreateJob.css';
 
@@ -121,7 +121,7 @@ const CreateJob = () => {
 
             <div className="form-row">
               <div className="form-group">
-                <label>Vacancies</label>
+                <label>People Cutoff</label>
                  <div className="input-icon-wrapper">
                   <Users size={18} className="input-icon" />
                   <input type="number" name="vacancies" value={formData.vacancies} onChange={handleChange} min="1" />

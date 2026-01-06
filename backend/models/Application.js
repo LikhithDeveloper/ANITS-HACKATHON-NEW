@@ -25,6 +25,12 @@ const applicationSchema = mongoose.Schema({
     resumeImprovements: [String],
     learningPlan: [Object]
   },
+  interviewGuidance: {
+    type: String // Stores the generated Markdown
+  },
+  rejectionFeedback: {
+    type: String // Stores the detailed rejection analysis
+  },
   status: {
     type: String,
     enum: ['Applied', 'Screened', 'Interview', 'Rejected', 'Hired'],

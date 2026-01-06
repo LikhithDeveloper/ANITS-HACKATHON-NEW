@@ -4,7 +4,7 @@
   justify-content: center;
   min-height: 100vh;
   padding-top: var(--header-height);
-  background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%);
+  background: radial-gradient(circle at top right, #f1f5f9 0%, #ffffff 100%);
 }
 
 .auth-card {
@@ -25,7 +25,7 @@
 .auth-header h2 {
   font-size: 1.8rem;
   margin-bottom: 8px;
-  color: white;
+  color: var(--text-primary);
 }
 
 .auth-header p {
@@ -75,7 +75,7 @@
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  color: white;
+  color: var(--text-primary);
   font-size: 0.95rem;
   transition: all 0.2s;
 }

@@ -21,7 +21,7 @@ const Login = () => {
     
     const res = await login(formData.email, formData.password);
     if (res.success) {
-      navigate('/resume-screening'); // Redirect to tool
+      navigate('/'); // Redirect to tool
     } else {
       setError(res.message);
     }

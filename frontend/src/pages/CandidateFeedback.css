@@ -1,0 +1,131 @@
+.feedback-page, .feedback-error {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    overflow-y: auto;
+    min-height: 100vh;
+    background: var(--bg-primary);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+}
+
+.feedback-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #1c1917;
+    color: #f59e0b;
+    gap: 20px;
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(245, 158, 11, 0.2);
+    border-radius: 50%;
+    border-top-color: #f59e0b;
+    animation: spin 1s linear infinite;
+}
+
+.feedback-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+.feedback-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
+}
+
+.feedback-header {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    padding: 40px;
+    text-align: center;
+    color: white;
+}
+
+.icon-badge {
+    background: rgba(255,255,255,0.2);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+.feedback-body {
+    padding: 40px;
+}
+
+.feedback-notice {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    gap: 12px;
+    align-items: start;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.markdown-content h3.section-title {
+    color: #f59e0b;
+    border-bottom: 1px solid #44403c;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    background: var(--bg-primary);
+    margin-bottom: 4px;
+    border-radius: 4px;
+}
+
+.table-row:first-of-type {
+    background: var(--accent-primary);
+    font-weight: 700;
+    color: white;
+}
+
+.table-cell {
+    font-size: 0.9rem;
+}
+
+.feedback-footer {
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+}
+
+.guidance-error {
+    flex-direction: column;
+    align-items: center;
+    color: #ef4444;
+    text-align: center;
+}

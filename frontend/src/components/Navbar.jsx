@@ -4,6 +4,7 @@ import AuthContext from '../context/AuthContext';
 import { Menu, X, Brain, FileText, User, LogOut, Home, LayoutDashboard } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
+import test from "../assets/image copy.png"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,8 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container navbar-container">
         <Link to="/" className="navbar-logo">
-          <Brain className="logo-icon" size={32} />
+          {/* <Brain className="logo-icon" size={32} /> */}
+          <img  src={test} alt="logo" className="logo-icon" width={70}></img>
           <span className="logo-text">TalentScout<span className="logo-accent">AI</span></span>
         </Link>
 
@@ -30,9 +32,9 @@ const Navbar = () => {
                 <LayoutDashboard size={18} /> Dashboard
             </Link>
           )}
-          <Link to="/resume-screening" className={`nav-link ${location.pathname === '/resume-screening' ? 'active' : ''}`}>
+          {/* <Link to="/resume-screening" className={`nav-link ${location.pathname === '/resume-screening' ? 'active' : ''}`}>
              <FileText size={18} /> Quick Screen
-          </Link>
+          </Link> */}
           
           <div className="nav-divider"></div>
 

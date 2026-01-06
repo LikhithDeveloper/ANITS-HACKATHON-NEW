@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { createJob, getMyJobs, getJobById } = require('../controllers/jobController');
+const { createJob, getMyJobs, getJobById, updateJobStatus } = require('../controllers/jobController');
 const { protect } = require('../middleware/authMiddleware');
 
 router.route('/')
@@ -9,5 +9,7 @@ router.route('/')
 
 router.route('/:id')
   .get(protect, getJobById);
+
+router.put('/:id/status', protect, updateJobStatus);
 
 module.exports = router;

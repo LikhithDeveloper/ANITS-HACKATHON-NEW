@@ -85,7 +85,7 @@ const Signup = () => {
           </div>
 
           <div className="form-group">
-            <label>Company Website</label>
+            <label>Company Carres Page</label>
             <div className="input-icon-wrapper">
                <Globe size={18} className="input-icon" />
               <input 

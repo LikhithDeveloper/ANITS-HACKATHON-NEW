@@ -52,6 +52,9 @@ const jobSchema = mongoose.Schema({
   recruitmentPhases: {
     type: [String],
     default: ['Screening', 'Technical Interview', 'HR Interview', 'Offer']
+  },
+  deadline: {
+    type: Date
   }
 }, {
   timestamps: true

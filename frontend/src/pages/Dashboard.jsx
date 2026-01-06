@@ -67,7 +67,7 @@ const Dashboard = () => {
                     <div className="job-meta">
                     <span><Briefcase size={14} /> {job.department}</span>
                     <span><MapPin size={14} /> {job.location}</span>
-                    <span><Users size={14} /> {job.vacancies} Vacancies</span>
+                    <span><Users size={14} /> {job.vacancies} People Cutoff</span>
                     </div>
                     <Link to={`/jobs/${job._id}`} className="view-job-btn">
                     View Details <ChevronRight size={16} />

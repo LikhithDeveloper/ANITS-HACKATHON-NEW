@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Color Palette - Dark AI Theme */
-  --bg-primary: #0f172a; /* Slate 900 */
-  --bg-secondary: #1e293b; /* Slate 800 */
-  --bg-card: #1e293b;
+  /* Color Palette - Light AI Theme */
+  --bg-primary: #ffffff; /* White */
+  --bg-secondary: #f8fafc; /* Slate 50 */
+  --bg-card: #ffffff;
   
-  --text-primary: #f8fafc; /* Slate 50 */
-  --text-secondary: #94a3b8; /* Slate 400 */
+  --text-primary: #0f172a; /* Slate 900 */
+  --text-secondary: #64748b; /* Slate 500 */
   
-  --accent-primary: #3b82f6; /* Blue 500 */
-  --accent-glow: rgba(59, 130, 246, 0.5);
-  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); /* Blue to Purple */
+  --accent-primary: #4D7AF6; /* Requested Blue */
+  --accent-glow: rgba(77, 122, 246, 0.3);
+  --accent-gradient: linear-gradient(135deg, #4D7AF6 0%, #3b82f6 100%);
   
-  --border-color: #334155; /* Slate 700 */
+  --border-color: #e2e8f0; /* Slate 200 */
   
   /* Spacing */
   --container-width: 1200px;

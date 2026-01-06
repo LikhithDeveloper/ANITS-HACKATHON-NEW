@@ -48,7 +48,7 @@ const itemVariants = {
 
 const Services = () => {
   return (
-    <section className="services-section">
+    <section className="services-section" id="services">
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Why Choose TalentScout AI?</h2>

@@ -56,6 +56,26 @@ const getMyJobs = async (req, res) => {
   }
 };
 
+// @desc    Update Job Status
+// @route   PUT /api/jobs/:id/status
+// @access  Private
+const updateJobStatus = async (req, res) => {
+    try {
+        const { status } = req.body;
+        const job = await Job.findById(req.params.id);
+
+        if (!job) return res.status(404).json({ message: 'Job not found' });
+        if (job.recruiter.toString() !== req.user.id) return res.status(401).json({ message: 'Not authorized' });
+
+        job.status = status;
+        await job.save();
+        res.json(job);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+};
+
 // @desc    Get single job
 // @route   GET /api/jobs/:id
 // @access  Private
@@ -81,5 +101,6 @@ const getJobById = async (req, res) => {
 module.exports = {
   createJob,
   getMyJobs,
-  getJobById
+  getJobById,
+  updateJobStatus
 };

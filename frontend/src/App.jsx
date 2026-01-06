@@ -10,6 +10,8 @@ import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import CreateJob from './pages/CreateJob';
 import JobDetails from './pages/JobDetails';
+import CandidateGuidance from './pages/CandidateGuidance';
+import CandidateFeedback from './pages/CandidateFeedback';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -55,6 +57,8 @@ function App() {
               />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/guidance/:id" element={<CandidateGuidance />} />
+              <Route path="/feedback/:id" element={<CandidateFeedback />} />
             </Routes>
           </main>
           <Footer />

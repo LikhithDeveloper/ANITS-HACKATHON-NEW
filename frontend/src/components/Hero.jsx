@@ -5,6 +5,13 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import './Hero.css';
 
 const Hero = () => {
+  const scrollToServices = () => {
+    const element = document.getElementById('services');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="hero">
       <div className="hero-background">
@@ -19,14 +26,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* <motion.div 
-            className="hero-badge"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <Sparkles size={16} /> <span>Powered by Gemini & GPT-4o</span>
-          </motion.div> */}
+          {/* ... (Badge previously commented out remains commented out if desired) ... */}
           
           <h1 className="hero-title">
             Hiring Intelligence <br />
@@ -39,11 +39,14 @@ const Hero = () => {
           </p>
           
           <div className="hero-actions">
-            <Link to="/resume-screening" className="btn btn-primary hero-btn">
+            {/* <Link to="/resume-screening" className="btn btn-primary hero-btn">
+              Start Screening Free <ArrowRight size={18} />
+            </Link> */}
+            <Link to="/dashboard" className="btn btn-primary hero-btn">
               Start Screening Free <ArrowRight size={18} />
             </Link>
-            <button className="btn btn-outline hero-btn">
-              Why AI?
+            <button onClick={scrollToServices} className="btn btn-outline hero-btn">
+              Why Choose Us?
             </button>
           </div>
 
