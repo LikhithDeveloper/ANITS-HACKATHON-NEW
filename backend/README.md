@@ -1,58 +1,66 @@
-# TalentScout AI - Backend API
+# TalentScout AI - Backend
 
-The backend for TalentScout AI, built with Node.js, Express, and MongoDB. It handles user authentication, job management, and AI-powered resume screening via Groq.
+The backend service for TalentScout AI, built with Node.js and Express. It handles authentication, file processing, and interactions with the Groq AI API.
 
-## ⚙️ Setup & Installation
+## 🛠 Requirements
 
-1.  **Install Dependencies**
-    ```bash
-    npm install
-    ```
+*   Node.js
+*   MongoDB instance
+*   Groq API Key (for LLM inference)
 
-2.  **Environment Variables**
-    Create a `.env` file in the root directory:
-    ```env
-    PORT=5000
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET=your_jwt_secret_key
-    GROQ_API_KEY=your_primary_key (Note: Controller uses an internal pool of 7 keys)
-    ```
+## ⚙️ Configuration
 
-3.  **Run Server**
-    ```bash
-    node server.js
-    npm run dev
-    ```
+### 1. Environment Variables
+Create a `.env` file in the `backend/` directory:
 
-3.  **🔑 API Key Configuration**
-    The application uses a pool of Groq API Keys to handle rate limiting.
-    These keys are stored in [`config/keys.js`](./config/keys.js).
-    You can update the `GROQ_KEYS` array in this file to add or rotate your own keys.
+```env
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/talentscout  # Or your MongoDB Atlas URI
+JWT_SECRET=your_super_secret_jwt_key
+```
 
-## 📡 API Endpoints
+### 2. API Keys
+For the AI features to work, you must configure your Groq API keys.
+Create a file `backend/config/keys.js`:
 
-### Authentication
-*   `POST /api/auth/register` - Register a new Recruiter (Company Name, Website required).
+```javascript
+// backend/config/keys.js
+const GROQ_KEYS = [
+    "gsk_your_first_groq_key_here",
+    "gsk_your_second_key_optional_for_rotation"
+];
+
+module.exports = { GROQ_KEYS };
+```
+*Note: The system supports key rotation to handle rate limits.*
+
+## 🏃‍♂️ Running the Server
+
+```bash
+# Install dependencies
+npm install
+
+# Run in development mode (nodemon)
+npm run dev
+
+# Run in production
+node server.js
+```
+
+## 🔌 API Endpoints
+
+### Auth
+*   `POST /api/auth/register` - Register a new recruiter/company.
 *   `POST /api/auth/login` - Login and receive JWT.
-*   `GET /api/auth/me` - Get current user profile.
 
 ### Jobs
-*   `POST /api/jobs` - Create a new Job Profile.
-*   `GET /api/jobs` - Get all jobs created by the logged-in recruiter.
-*   `GET /api/jobs/:id` - Get specific job details.
+*   `POST /api/jobs` - Create a new job posting.
+*   `GET /api/jobs` - List all jobs.
+*   `GET /api/jobs/:id` - Get job details.
 
-### Screening & AI
-*   `POST /api/screening/analyze` - Single resume analysis (Ephemeral).
-*   `POST /api/screening/:jobId/bulk-screen` - Bulk upload resumes (PDF).
-    *   **Features**: Accepts array of files (limit 100), checks mime-type, analyzes via Groq, saves to DB.
-    *   **Logic**: Uses Smart Batching (5 parallel requests) to respect rate limits.
-*   `GET /api/screening/:jobId/applications` - Get ranked list of candidates for a job.
-
-## 🧠 AI Engine Details
-*   **Model**: Llama-3.1-8b-instant (via Groq Cloud).
-*   **Prompting**: Uses strict system prompts to score candidates from 0-100 based on exact Job Description alignment.
-*   **Resilience**: Implements automatic key rotation if a `429` Rate Limit error is encountered.
-
-## 🛡 Security
-*   **Auth**: All protected routes require `Authorization: Bearer <token>` header.
-*   **Validation**: PDF-only file upload restriction.
+### Screening (AI)
+*   `POST /api/screening/analyze` - Single resume analysis.
+*   `POST /api/screening/:jobId/bulk-screen` - Upload multiple resumes (PDF) for sorting.
+*   `GET /api/screening/:jobId/applications` - Get ranked candidates.
+*   `GET /api/screening/guidance/:id` - Public link for candidate interview prep.
+*   `GET /api/screening/feedback/:id` - Public link for rejection feedback.

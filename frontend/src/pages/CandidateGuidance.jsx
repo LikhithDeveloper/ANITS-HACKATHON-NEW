@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BookOpen, CheckCircle, ExternalLink, ArrowRight } from 'lucide-react';
+import { BookOpen, CheckCircle, ExternalLink, ArrowRight, Sun, Moon } from 'lucide-react';
+import ThemeContext from '../context/ThemeContext';
 import './CandidateGuidance.css';
 
 const CandidateGuidance = () => {
     const { id } = useParams();
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     useEffect(() => {
         const fetchGuidance = async () => {
@@ -54,6 +56,11 @@ const CandidateGuidance = () => {
 
     return (
         <div className="guidance-page">
+            <div className="theme-toggle-fixed" style={{ position: 'fixed', top: '20px', right: '20px', zIndex: 11000 }}>
+                <button onClick={toggleTheme} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '10px', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-primary)', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+                    {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+                </button>
+            </div>
             <div className="guidance-container">
                 <motion.div 
                     initial={{opacity:0, y:20}} 
@@ -84,7 +91,7 @@ const CandidateGuidance = () => {
                     <footer className="guidance-footer">
                         <p>Good luck! We look forward to meeting you.</p>
                         <div style={{margin: '15px 0'}}>
-                            <a href="mailto:support@talentscout.ai" style={{color: '#3b82f6', textDecoration:'none', fontWeight: '600'}}>
+                            <a href="mailto:likhith931@gmail.com" style={{color: '#3b82f6', textDecoration:'none', fontWeight: '600'}}>
                                 Need Help? Contact Us
                             </a>
                         </div>

@@ -1,23 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 :root {
-  /* Color Palette - Light AI Theme */
-  --bg-primary: #ffffff; /* White */
-  --bg-secondary: #f8fafc; /* Slate 50 */
+  /* Color Palette - Default (Light) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
   --bg-card: #ffffff;
-  
-  --text-primary: #0f172a; /* Slate 900 */
-  --text-secondary: #64748b; /* Slate 500 */
-  
-  --accent-primary: #4D7AF6; /* Requested Blue */
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --accent-primary: #4D7AF6;
   --accent-glow: rgba(77, 122, 246, 0.3);
   --accent-gradient: linear-gradient(135deg, #4D7AF6 0%, #3b82f6 100%);
+  --border-color: #e2e8f0;
   
-  --border-color: #e2e8f0; /* Slate 200 */
-  
+  /* Navbar */
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --nav-border: rgba(0, 0, 0, 0.05);
+  --nav-shadow: 0 4px 20px -5px rgba(0,0,0,0.1);
+
   /* Spacing */
   --container-width: 1200px;
   --header-height: 70px;
+}
+
+[data-theme='dark'] {
+  /* Color Palette - Dark Mode (Original) */
+  --bg-primary: #0f172a; /* Slate 900 */
+  --bg-secondary: #1e293b; /* Slate 800 */
+  --bg-card: #1e293b;
+  --text-primary: #f8fafc; /* Slate 50 */
+  --text-secondary: #94a3b8; /* Slate 400 */
+  --accent-primary: #3b82f6; /* Blue 500 */
+  --accent-glow: rgba(59, 130, 246, 0.5);
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  --border-color: #334155; /* Slate 700 */
+  
+  /* Navbar Dark */
+  --nav-bg: rgba(15, 23, 42, 0.7);
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --nav-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
 }
 
 * {

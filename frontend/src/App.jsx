@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import MainLayout from './layouts/MainLayout';
+import PublicLayout from './layouts/PublicLayout';
 import Home from './pages/Home';
 import ResumeScreening from './pages/ResumeScreening';
 import Login from './pages/Login';
@@ -18,51 +18,52 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <div className="app">
-          <Navbar />
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route 
-                path="/resume-screening" 
-                element={
-                  <ProtectedRoute>
-                    <ResumeScreening />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/dashboard" 
-                element={
-                  <ProtectedRoute>
-                    <Dashboard />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/create-job" 
-                element={
-                  <ProtectedRoute>
-                    <CreateJob />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/jobs/:id" 
-                element={
-                  <ProtectedRoute>
-                    <JobDetails />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/guidance/:id" element={<CandidateGuidance />} />
-              <Route path="/feedback/:id" element={<CandidateFeedback />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
+        <Routes>
+          {/* Main App Routes (Recruiter) */}
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route 
+              path="/resume-screening" 
+              element={
+                <ProtectedRoute>
+                  <ResumeScreening />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/dashboard" 
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/create-job" 
+              element={
+                <ProtectedRoute>
+                  <CreateJob />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/jobs/:id" 
+              element={
+                <ProtectedRoute>
+                  <JobDetails />
+                </ProtectedRoute>
+              } 
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Route>
+
+          {/* Public Candidate Routes (Standalone) */}
+          <Route element={<PublicLayout />}>
+            <Route path="/guidance/:id" element={<CandidateGuidance />} />
+            <Route path="/feedback/:id" element={<CandidateFeedback />} />
+          </Route>
+        </Routes>
       </AuthProvider>
     </Router>
   );

@@ -4,7 +4,7 @@
   justify-content: center;
   min-height: 100vh;
   padding-top: var(--header-height);
-  background: radial-gradient(circle at top right, #f1f5f9 0%, #ffffff 100%);
+  background: var(--bg-primary);
 }
 
 .auth-card {

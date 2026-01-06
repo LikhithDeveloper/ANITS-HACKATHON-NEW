@@ -37,15 +37,15 @@ const Footer = () => {
           <ul className="contact-list">
             <li>
               <Mail size={16} /> 
-              <span>support@talentscout.ai</span>
+              <span>likhith931@gmail.com</span>
             </li>
             <li>
               <Phone size={16} /> 
-              <span>+1 (555) 123-4567</span>
+              <span>+91 8897905157</span>
             </li>
             <li>
               <MapPin size={16} /> 
-              <span>123 AI Boulevard, Tech City</span>
+              <span>Kukatpally, Hyderabad</span>
             </li>
           </ul>
         </div>

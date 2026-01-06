@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
-import { Menu, X, Brain, FileText, User, LogOut, Home, LayoutDashboard } from 'lucide-react';
+import ThemeContext from '../context/ThemeContext';
+import { Menu, X, Brain, FileText, User, LogOut, Home, LayoutDashboard, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 import test from "../assets/image copy.png"
@@ -10,6 +11,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { user, logout } = useContext(AuthContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -32,9 +34,10 @@ const Navbar = () => {
                 <LayoutDashboard size={18} /> Dashboard
             </Link>
           )}
-          {/* <Link to="/resume-screening" className={`nav-link ${location.pathname === '/resume-screening' ? 'active' : ''}`}>
-             <FileText size={18} /> Quick Screen
-          </Link> */}
+
+          <button onClick={toggleTheme} className="btn-icon" style={{ marginLeft: '10px', cursor: 'pointer', background: 'none', border: 'none', color: 'var(--text-primary)' }}>
+            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
           
           <div className="nav-divider"></div>
 
@@ -77,6 +80,9 @@ const Navbar = () => {
           ) : (
             <Link to="/login" className="mobile-link" onClick={toggleMenu}>Login</Link>
           )}
+          <button className="mobile-link" onClick={toggleTheme} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            {theme === 'light' ? <><Moon size={18} /> Dark Mode</> : <><Sun size={18} /> Light Mode</>}
+          </button>
         </motion.div>
       )}
       </AnimatePresence>

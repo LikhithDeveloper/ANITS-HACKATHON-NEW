@@ -1,46 +1,47 @@
-# TalentScout AI - Frontend Application
+# TalentScout AI - Frontend
 
-The React-based frontend for TalentScout AI, featuring a modern, dark-themed UI for recruiters to manage jobs and screen candidates.
-
-## 🚀 Features
-*   **Recruiter Dashboard**: Overview of all active job postings and status.
-*   **Job Creation**: Detailed form to specify skills, requirements, and job details.
-*   **Smart Bulk Upload**:
-    *   Drag-and-drop interface support multiple PDF files.
-    *   **Client-Side Batching**: Uploads files in chunks of 5 to ensure backend stability and provide real-time feedback.
-    *   **Progress Bar**: Visual indicator of the analysis progress.
-*   **Candidate Insights**:
-    *   Expandable cards showing Match Score and Status.
-    *   Detailed view of "Missing Critical Skills" and "AI Summary".
-    *   Color-coded scores (Green/Yellow/Red).
-
-## 🛠 Tech Stack
-*   **Vite**: Fast build tool and dev server.
-*   **React**: Component-based UI.
-*   **Framer Motion**: Smooth animations for page transitions and card interactions.
-*   **Lucide React**: Modern icon set.
-*   **React Dropzone**: File handling.
-*   **Module CSS**: Custom styling variables (`index.css`).
-
-## ⚙️ Setup
-1.  **Install Dependencies**
-    ```bash
-    npm install
-    ```
-2.  **Run Development Server**
-    ```bash
-    npm run dev
-    ```
-    Access the app at `http://localhost:5173`.
-
-## 📂 Key Components
-*   `pages/Dashboard.jsx`: Main hub for recruiters.
-*   `pages/JobDetails.jsx`: Complex view handling both job info and the screening/candidates tab. Implements the batch upload logic.
-*   `components/Navbar.jsx`: Responsive navigation with auth state awareness.
-*   `context/AuthContext.jsx`: Handles user session and JWT storage.
+The frontend user interface for TalentScout AI, built using React and Vite. It provides a modern, responsive experience for recruiters to manage jobs and candidates.
 
 ## 🎨 Design System
-The app uses a "Dark Premium" theme defined in `index.css`:
-*   **Backgrounds**: Deep slate/black (`#0f172a`, `#1e293b`).
-*   **Accents**: Blue (`#3b82f6`) and Emerald (`#10b981`) for success states.
-*   **Typography**: Inter/System fonts for clean readability.
+
+*   **Theme**: "Light AI" (Clean White & Slate Blue `#4D7AF6`).
+*   **Styling**: Plain CSS with CSS Modules/Variables approach.
+*   **Components**: Custom implementations of Modals, Dropzones, and Dashboards.
+
+## 🛠 Setup & Run
+
+### 1. Install Dependencies
+Navigate to the frontend directory:
+```bash
+cd frontend
+npm install
+```
+
+### 2. Run Development Server
+```bash
+npm run dev
+```
+The app will be available at `http://localhost:5173`.
+
+## 📱 Key Pages
+
+*   **Landing Page**: Hero section and feature highlights.
+*   **Auth**: Login and Registration for recruiters.
+*   **Dashboard**: Overview of open job positions.
+*   **Create Job**: Form to define roles, skills, and interview phases.
+*   **Job Details**:
+    *   **Overview Tab**: Job stats.
+    *   **Candidates Tab**: List of applicants with "Match Score" badges (Strong/Good/Weak).
+    *   **Unbiased Mode**: Toggle to hide names/emails during review.
+*   **Resume Screening**: Drag & Drop interface for bulk PDF uploads.
+
+## 🔗 Public Candidate Pages
+These pages are accessible without login, designed to be sent via email to candidates:
+*   `/guidance/:id` - Personalized interview roadmap for shortlisted candidates.
+*   `/feedback/:id` - Skill gap analysis for rejected candidates.
+
+## 🧩 Key Components
+
+*   **Navbar.jsx**: Responsive navigation with glassmorphism effect.
+*   **Hero.jsx**: Animated entry section.
+*   **AuthContext.jsx**: Handles JWT token storage and user session.

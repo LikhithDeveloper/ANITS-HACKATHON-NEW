@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { TrendingUp, Award, FileText, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
+import { TrendingUp, Award, FileText, CheckCircle, XCircle, AlertCircle, Sun, Moon } from 'lucide-react';
+import ThemeContext from '../context/ThemeContext';
+import { useContext } from 'react';
 import './CandidateFeedback.css';
 
 const CandidateFeedback = () => {
@@ -70,8 +72,15 @@ const CandidateFeedback = () => {
         });
     };
 
+    const { theme, toggleTheme } = useContext(ThemeContext);
+
     return (
         <div className="feedback-page">
+            <div className="theme-toggle-fixed" style={{ position: 'fixed', top: '20px', right: '20px', zIndex: 11000 }}>
+                <button onClick={toggleTheme} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '10px', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-primary)', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+                    {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+                </button>
+            </div>
             <div className="feedback-container">
                 <motion.div 
                     initial={{opacity:0, y:20}} 

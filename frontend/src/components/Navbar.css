@@ -8,12 +8,12 @@
   transform: translateX(-50%);
   z-index: 1000;
   
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--nav-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--nav-border);
   border-radius: 20px;
-  box-shadow: 0 4px 20px -5px rgba(0,0,0,0.1);
+  box-shadow: var(--nav-shadow);
 }
 
 @media (max-width: 768px) {
@@ -24,7 +24,7 @@
     border-left: none;
     border-right: none;
     border-top: none;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--nav-bg);
   }
 }
 
@@ -121,7 +121,7 @@
   left: 0;
   width: 100%;
   background: var(--bg-card);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  box-shadow: var(--nav-shadow);
   z-index: 1000;
 }
 
